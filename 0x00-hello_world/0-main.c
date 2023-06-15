@@ -7,5 +7,6 @@
  */
 int main(void)
 {
+	printf("C is not fun")
     return (0);
 }
