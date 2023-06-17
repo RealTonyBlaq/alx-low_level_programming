@@ -16,7 +16,7 @@ int main(void)
 	{
 		putchar(f + '0');
 	}
-	for (f = 'a'; f <= 'e'; f++)
+	for (f = 'a'; f <= 'f'; f++)
 	{
 		putchar(f);
 	}
