@@ -23,10 +23,8 @@ int main(void)
 		else if ((k < 10 || k > 11) && (k < 20 || k > 22) && (k < 30 || k > 33)
 			&& (k < 40 || k > 44) && (k < 50 || k > 55) && (k < 60 || k > 66)
 			&& (k < 70 || k > 77) && (k < 80 || k > 88) && (k < 90 || k > 99))
-		{
-			putchar(',');
-			putchar(' ');
-		}
+		putchar(',');
+		putchar(' ');
 	}
 	putchar('\n');
 
