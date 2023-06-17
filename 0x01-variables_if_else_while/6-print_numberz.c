@@ -10,14 +10,11 @@
 
 int main(void)
 {
-	int k = 0 - 9;
-	char c;
+	int k;
 
-	while (k >= 0)
+	for (k = 0; k <= 9; k++)
 	{
-		c = '0' + (k % 10);
-		putchar(c);
-		c /= 10;
+		putchar(k + '0');
 	}
 	putchar('\n');
 
