@@ -27,9 +27,11 @@ int main(void)
 					putchar(',');
 					putchar(' ');
 				}
-			}
 			if (j == 7 && k == 8 && l == 9)
-			putchar('\n');
+			{
+				putchar('\n');
+			}
+			}
 		}
 	}
 	return (0);
