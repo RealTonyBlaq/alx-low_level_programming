@@ -18,6 +18,7 @@ int main(void)
 		for (k = 0; k < 10; k++)
 		{
 			putchar(' ');
+		}
 			for (l = 0; l < 10; l++)
 			{
 				for (m = 0; m < 10; m++)
@@ -33,7 +34,6 @@ int main(void)
 					}
 				}
 			}
-		}
 		if (j == 9 && k == 8 && l == 9 && m == 9)
 		{
 			putchar('\n');
