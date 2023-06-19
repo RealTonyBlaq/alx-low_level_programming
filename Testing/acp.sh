@@ -1,2 +1,2 @@
 #!/bin/bash
-git add . | read -p "Enter your commit message: " message | git commit -m "'$message'" | git push
+echo "Enter your commit message:" | read message | git add . | git commit -m "$message" | git push
