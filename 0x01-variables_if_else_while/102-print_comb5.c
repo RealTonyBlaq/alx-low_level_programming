@@ -11,27 +11,24 @@
 
 int main(void)
 {
-	int i, j, s;
+	int i, j;
 
-	for (i = 0; i <= 99; i++)
+	for (i = 0; i <= 98; i++)
 	{
-		s = (i == 0) ? 0 : i + 1;
-		for (j = s; j <= 99; j++)
+		for (j = i + 1; j <= 99; j++)
 		{
-			/* Print tens digit of first number */
 			putchar('0' + (i / 10));
-			/* Print ones digit of first number */
 			putchar('0' + (i % 10));
 			putchar(' ');
-			/* Print tens digit of second number */
 			putchar('0' + (j / 10));
-			/* Print ones digit of second number */
 			putchar('0' + (j % 10));
-			putchar(',');
-			/* Print a space after each combination */
-			putchar(' ');
+			if (i != 89 && j != 99)
+			{
+				putchar(',');
+				putchar(' ');
+			}
 		}
-		putchar('\n');
 	}
+	putchar('\n');
 	return (0);
 }
