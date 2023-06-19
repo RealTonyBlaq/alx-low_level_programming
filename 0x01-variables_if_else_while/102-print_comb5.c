@@ -11,11 +11,12 @@
 
 int main(void)
 {
-	int i, j;
+	int i, j, s;
 
 	for (i = 0; i <= 99; i++)
 	{
-		for (j = i + 1; j <= 99; j++)
+		s = (i == 0) ? 0 : i + 1;
+		for (j = s; j <= 99; j++)
 		{
 			/* Print tens digit of first number */
 			putchar('0' + (i / 10));
