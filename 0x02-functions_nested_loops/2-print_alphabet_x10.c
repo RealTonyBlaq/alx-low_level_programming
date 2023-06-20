@@ -16,6 +16,7 @@ void print_alphabet_x10(void)
 	i = 0;
 
 	for (; i < 10; i++)
+	if (i < 10)
 	{
 		for (; c <= 'z'; c++)
 		if (c <= 'z')
