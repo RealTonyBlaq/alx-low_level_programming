@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * void: print_alphabet
+ * print_alphabet - testing the void declaration
  * Header by me
  * Program: printing lowercase alphabets
  * Return: void
