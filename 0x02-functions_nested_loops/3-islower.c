@@ -1,25 +1,19 @@
 #include "main.h"
 
 /**
- * main - Entry point
+ * _islower - checks for lowercase alphas
  *
- * Return: Always 1 (Success)
+ * Return: 1 if true, otherwise return 0
  */
 
-int main(void)
+int _islower(int c)
 {
-	int _islower(int c);
-	int j = 1, k = 0;
-	char c = 'a';
-
-	if (_islower(c))
+	if (c >= 'a' && c <= 'z')
 	{
-		_putchar(j + '0');
+		return (1);
 	}
 	else
 	{
-		_putchar(k + '0');
+		return (0);
 	}
-
-	return (0);
 }
