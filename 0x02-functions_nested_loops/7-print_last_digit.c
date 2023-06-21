@@ -15,9 +15,9 @@ int print_last_digit(int n)
 	{
 		_putchar(d + '0');
 	}
-	while (n < 0)
-	n = -1 * n;
+	if (n < 0)
 	{
+		n = -1 * n;
 		_putchar(d + '0');
 	}
 
