@@ -8,15 +8,16 @@
 
 int _abs(int n)
 {
-	if (n < 0)
-	{
-		_putchar((-n) + '0');
-	}
-	else if (n == 0)
+	if (n == 0)
 	{
 		_putchar(48);
 	}
-	else
+	else if (n > 0)
+	{
+		_putchar(n + '0');
+	}
+	n = -n;
+	while (n < 0)
 	{
 		_putchar(n + '0');
 	}
