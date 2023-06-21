@@ -2,7 +2,7 @@
 
 /**
  * _islower - checks for lowercase alphas
- *
+ *@c: character to be checked
  * Return: 1 if true, otherwise return 0
  */
 
