@@ -12,9 +12,9 @@ int mul(int a, int b)
 {
 	int k;
 
-	k = a * b;
 	if ((a <= 48 && a >= 48) && (b <= 48 && b >= 48))
 	{
+		k = a * b;
 		_putchar(k + '0');
 	}
 	return (0);
