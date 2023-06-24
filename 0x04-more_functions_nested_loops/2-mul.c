@@ -10,12 +10,5 @@
 
 int mul(int a, int b)
 {
-	int k;
-
-	k = a * b;
-	if ((a <= 0 || a > 0) && (b <= 0 || b > 0))
-	{
-		_putchar(k + '0');
-	}
-	return (0);
+	return (a * b);
 }
