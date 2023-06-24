@@ -12,10 +12,10 @@ int mul(int a, int b)
 {
 	int k;
 
-	if ((a <= 48 && a >= 48) && (b <= 48 && b >= 48))
+	k = a * b;
+	if ((a <= 0 || a > 0) && (b <= 0 || b > 0))
 	{
-		k = a * b;
 		_putchar(k + '0');
 	}
-	return (k);
+	return (0);
 }

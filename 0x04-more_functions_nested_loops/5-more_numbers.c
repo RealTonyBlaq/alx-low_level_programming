@@ -9,14 +9,20 @@
 void more_numbers(void)
 {
 	int i, k;
-	char num;
+	int tens;
+	int ones;
 
 	for (i = 0; i < 10; i++)
 	{
-		num = k + '0';
 		for (k = 0; k <= 14; k++)
 		{
-			_putchar(num);
+			tens = k / 10 + '0';
+			ones = k % 10 + '0';
+			if (k >= 10)
+			{
+				_putchar(tens);
+			}
+			_putchar(ones);
 		}
 		_putchar('\n');
 	}
