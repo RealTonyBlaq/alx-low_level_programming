@@ -10,9 +10,10 @@ void print_line(int n)
 {
 	int k;
 
-	if (n <= 0)
+	while (n <= 0)
 	{
 		_putchar('\n');
+		n--;
 	}
 	for (k = 0; k < n; k++)
 	{
