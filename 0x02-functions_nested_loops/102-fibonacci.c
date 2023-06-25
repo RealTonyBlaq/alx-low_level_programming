@@ -9,15 +9,15 @@
 int main(void)
 {
 	int n = 50;
-	long long int a = 1;
-	long long int b = 2;
-	long long int next;
+	long int a = 1;
+	long int b = 2;
+	long int next;
 	int i;
 
-	printf("%lld", a);
+	printf("%ld", a);
 	for (i = 2; i <= n; i++)
 	{
-		printf(", %lld", b);
+		printf(", %ld", b);
 		next = a + b;
 		a = b;
 		b = next;
