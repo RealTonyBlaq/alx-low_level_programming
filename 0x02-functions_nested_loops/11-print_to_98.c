@@ -15,16 +15,18 @@ void print_to_98(int n)
 
 	for (start = n; start <= end; start++)
 	{
+		printf("%d", start);
 		if (start != end)
 		{
-			printf("%d, ", start);
+			printf(", ");
 		}
 	}
 	for (start = n; start >= end; start--)
 	{
+		printf("%d", start);
 		if (start != end)
 		{
-			printf("%d, ", start);
+			printf(", ");
 		}
 	}
 	printf("\n");
