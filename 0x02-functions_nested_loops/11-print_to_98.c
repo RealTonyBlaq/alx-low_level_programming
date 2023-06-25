@@ -13,23 +13,26 @@ void print_to_98(int n)
 	int end = 98;
 	int start;
 
-	for (start = n; start <= end; start++)
+	if (n != 98)
 	{
-		printf("%d", start);
-		if (start != end)
+		for (start = n; start <= end; start++)
 		{
-			printf(", ");
+			printf("%d", start);
+			if (start != end)
+			{
+				printf(", ");
+			}
+		}
+		for (start = n; start >= end; start--)
+		{
+			printf("%d", start);
+			if (start != end)
+			{
+				printf(", ");
+			}
 		}
 	}
-	for (start = n; start >= end; start--)
-	{
-		printf("%d", start);
-		if (start != end)
-		{
-			printf(", ");
-		}
-	}
-	if (n == end)
+	else
 	{
 		printf("%d", end);
 	}
