@@ -9,23 +9,17 @@
 int main(void)
 {
 	int n = 50;
-	int fib[n];
-	int i;
+	int a = 1;
+	int b = 2;
+	int next;
 
-	fib[0] = 1;
-	fib[1] = 2;
-
-	for (i = 2; i < n; i++)
+	printf("%d", a);
+	for (int i = 2; i <= n; i++)
 	{
-		fib[i] = fib[i - 1] + fib[i - 2];
-	}
-	for (i = 0; i < n; i++)
-	{
-		printf("%d", fib[i]);
-		if (i < n - 1)
-		{
-			printf(", ");
-		}
+		printf(", %d", b);
+		next = a + b;
+		a = b;
+		b = next;
 	}
 	printf("\n");
 	return (0);
