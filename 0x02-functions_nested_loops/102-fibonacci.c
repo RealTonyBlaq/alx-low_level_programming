@@ -12,9 +12,10 @@ int main(void)
 	int a = 1;
 	int b = 2;
 	int next;
+	int i;
 
 	printf("%d", a);
-	for (int i = 2; i <= n; i++)
+	for (i = 2; i <= n; i++)
 	{
 		printf(", %d", b);
 		next = a + b;
