@@ -8,17 +8,19 @@
 
 int _abs(int n)
 {
-	int a;
+	int tens;
+	int ones;
 
 	if (n < 0)
 	{
 		n = -n;
 	}
-	a = n;
-	if (a < 0)
+	tens = n / 10 + '0';
+	ones = n % 10 + '0';
+	if (n >= 10)
 	{
-		a = -a;
+		_putchar(tens);
 	}
-	_putchar(a + '0');
-	return (a);
+	_putchar(ones);
+	return (0);
 }
