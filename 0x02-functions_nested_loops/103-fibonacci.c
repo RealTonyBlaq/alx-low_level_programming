@@ -8,26 +8,21 @@
 
 int main(void)
 {
-	int n = 31;
-	long int a = 2;
-	long int b = 4;
-	long int next;
-	int i;
+	int a = 1;
+	int b = 2;
+	int next;
+	int total;
 
-	printf("%ld", a);
-	for (i = 2; i < n; i++)
+	while (a <= 4000000)
 	{
-		if (b % 2 == 0)
+		if (a % 2 == 0)
 		{
-			printf(", %ld", b);
-			if (next <= 4000000)
-			{
-				next = a + b;
-				a = b;
-				b = next;
-			}
+			total = total + a;
 		}
+		next = a + b;
+		a = b;
+		b = next;
 	}
-	printf("\n");
+	printf("%d\n", total);
 	return (0);
 }
