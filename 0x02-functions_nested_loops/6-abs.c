@@ -20,5 +20,5 @@ int _abs(int n)
 		a = -a;
 	}
 	_putchar(a + '0');
-	return (0);
+	return (a);
 }
