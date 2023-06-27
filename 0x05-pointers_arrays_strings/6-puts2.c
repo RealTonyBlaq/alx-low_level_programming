@@ -9,10 +9,15 @@
 
 void puts2(char *str)
 {
-	while (*str != '\0')
+	long int k;
+	long int *m;
+
+	k = *str;
+	*m = k;
+	while (*m != '\0')
 	{
-		_putchar(*str);
-		str = str + 2;
+		_putchar(*m);
+		m = m + 2;
 	}
 	_putchar('\n');
 }
