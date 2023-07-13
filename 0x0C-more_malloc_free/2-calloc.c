@@ -23,9 +23,5 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	}
 	array = calloc(nmemb, size);
-	if (array == NULL)
-	{
-		return (NULL);
-	}
 	return (array);
 }
