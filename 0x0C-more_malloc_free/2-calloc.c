@@ -23,6 +23,11 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		free(array);
 		return (NULL);
 	}
-	free(array);
+	array = calloc(nmemb, size);
+	if (array == NULL)
+	{
+		free(array);
+		return (NULL);
+	}
 	return (array);
 }
