@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 
-char *_memset(char *s, char b, unsigned int n);
+char *_memset(char *str, char b, unsigned int n);
 void *_calloc(unsigned int nmemb, unsigned int size);
 
 /**
@@ -12,15 +12,15 @@ void *_calloc(unsigned int nmemb, unsigned int size);
  * Return: Nothing
  */
 
-char *_memset(char *s, char b, unsigned int n)
+char *_memset(char *str, char b, unsigned int n)
 {
 	unsigned int i;
 
 	for (i = 0; i < n; i++)
 	{
-		s[i] = b;
+		str[i] = b;
 	}
-	return (s);
+	return (str);
 }
 
 /**
