@@ -25,7 +25,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	array = calloc(nmemb, size);
 	if (array == NULL)
 	{
-		free(array);
 		return (NULL);
 	}
 	return (array);
