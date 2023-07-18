@@ -11,8 +11,6 @@
 
 void print_dog(struct dog *d)
 {
-	struct dog;
-
 	if (d)
 	{
 		if (d->name == NULL)
