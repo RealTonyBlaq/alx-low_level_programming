@@ -14,7 +14,7 @@
 void print_all(const char * const format, ...)
 {
 	int i;
-	const char *c;
+	const char *ptr;
 	float f;
 	int flag = 0;
 	va_list var;
@@ -23,10 +23,10 @@ void print_all(const char * const format, ...)
 
 	va_start(var, format);
 	k = 0;
-	c = format;
-	while (c[k] != '\0')
+	ptr = format;
+	while (ptr[k] != '\0')
 	{
-		switch (c[k])
+		switch (ptr[k])
 		{
 			case 'c':
 				i = va_arg(var, int);
@@ -56,7 +56,7 @@ void print_all(const char * const format, ...)
 			default:
 				break;
 		}
-		if (c[k + 1] != '\0' && flag)
+		if (ptr[k + 1] != '\0' && flag)
 		{
 			printf(", ");
 			flag = 0;
