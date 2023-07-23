@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include <ctype.h>
 
 /**
  * print_all - Function prints anything
@@ -40,8 +39,6 @@ void print_all(const char * const format, ...)
 					break;
 				}
 				printf("%s", s);
-				break;
-			default:
 				break;
 		}
 		if (format[k + 1] != '\0')
