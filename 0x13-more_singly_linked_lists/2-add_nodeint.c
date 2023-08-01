@@ -7,7 +7,6 @@
  *
  * Description: Function that adds a new node
  * at the beginning of a linked list
- * 
  * Return: The address of the new node
  */
 
