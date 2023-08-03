@@ -33,8 +33,6 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		duplicate = duplicate->next;
 		i_node++;
 	}
-/*	if (*head == NULL)
-		return (-1);*/
 	temp = duplicate->next;
 	duplicate->next = temp->next;
 	free(temp);
