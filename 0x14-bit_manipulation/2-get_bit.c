@@ -22,12 +22,3 @@ int get_bit(unsigned long int n, unsigned int index)
 	}
 	return (1);
 }
-
-int main(void)
-{
-	unsigned int n;
-
-	n = get_bit(8, 63);
-	printf("%d\n", n);
-	return (0);
-}
