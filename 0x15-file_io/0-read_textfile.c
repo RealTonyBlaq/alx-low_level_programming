@@ -31,15 +31,18 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	rret = read(fd, text, letters);
 	if (rret == -1)
 	{
+		free(text);
 		close(fd);
 		return (0);
 	}
 	wret = write(1, text, rret);
 	if (wret == -1 || wret != rret)
 	{
+		free(text);
 		close(fd);
 		return (0);
 	}
+	free(text);
 	close(fd);
 	return (rret);
 }
