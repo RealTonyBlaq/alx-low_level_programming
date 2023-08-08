@@ -15,7 +15,7 @@ int _putchar(char c);
 int create_file(const char *filename, char *text_content);
 int _strlen(char *str);
 int append_text_to_file(const char *filename, char *text_content);
-void main(int argc, char argv[]);
+int main(int argc, char **argv);
 void cp(const char *file_from, const char *file_to);
 
 #endif /* #ifndef MAIN_H */
