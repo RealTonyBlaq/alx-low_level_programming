@@ -18,7 +18,7 @@ void cp(const char *file_from, const char *file_to)
 	if ((fd_value1 < 0) || file_from == NULL)
 	{
 		close(fd_value1);
-		perror("Error: Can't read from file NAME_OF_THE_FILE\n");
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 	text = malloc(BYTES);
@@ -27,7 +27,7 @@ void cp(const char *file_from, const char *file_to)
 	{
 		free(text);
 		close(fd_value1);
-		perror("Error: Can't read from file NAME_OF_THE_FILE\n");
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 	fd_value2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR
@@ -37,7 +37,7 @@ void cp(const char *file_from, const char *file_to)
 	{
 		free(text);
 		close(fd_value2);
-		perror("Error: Can't write to NAME_OF_THE_FILE\n");
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 	ret1 = close(fd_value1);
@@ -45,9 +45,10 @@ void cp(const char *file_from, const char *file_to)
 	if (ret1 < 0 || ret2 < 0)
 	{
 		free(text);
-		perror("Error: Can't close fd FD_VALUE\n");
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ret1 < 0 ? ret1 : ret2);
 		exit(100);
 	}
+	free(text);
 }
 
 /**
