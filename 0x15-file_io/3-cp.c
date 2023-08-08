@@ -32,17 +32,11 @@ void cp(const char *file_from, const char *file_to)
 	}
 	fd_value2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR
 			| S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	if (chmod(file_to, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH) != 0)
-	{
-		free(text);
-		close(fd_value2);
-		dprintf(STDERR_FILENO, "Cant give permissions\n");
-		exit(22);
-	}
 	n_bytes = write(fd_value2, text, n_bytes);
+	free(text);
 	if (n_bytes < 0 || fd_value2 < 0 || !file_to)
 	{
-		free(text);
+		close(fd_value1);
 		close(fd_value2);
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
@@ -51,11 +45,9 @@ void cp(const char *file_from, const char *file_to)
 	ret2 = close(fd_value2);
 	if (ret1 < 0 || ret2 < 0)
 	{
-		free(text);
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ret1 < 0 ? ret1 : ret2);
 		exit(100);
 	}
-	free(text);
 }
 
 /**
