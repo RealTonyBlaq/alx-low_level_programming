@@ -36,10 +36,6 @@ void cp(const char *file_from, const char *file_to)
 	ret1 = close(fd_value1);
 	ret2 = close(fd_value2);
 	free(text);
-	if (chmod(file_to, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH) != 0)
-	{
-		exit(9);
-	}
 	if (n_bytes < 0 || fd_value2 < 0 || !file_to)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
