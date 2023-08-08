@@ -15,7 +15,7 @@ void cp(const char *file_from, const char *file_to)
 	char *text;
 
 	fd_value = open(file_from, O_RDONLY);
-	if (file_from == NULL || (fd_value < 0))
+	if ((fd_value < 0) || !file_from)
 	{
 		close(fd_value);
 		perror("Error: Can't read from file NAME_OF_THE_FILE\n");
@@ -23,7 +23,7 @@ void cp(const char *file_from, const char *file_to)
 	}
 	text = malloc(BYTES);
 	n_bytes = read(fd_value, text, BYTES);
-	if (text == NULL || n_bytes < 0)
+	if (n_bytes < 0)
 	{
 		free(text);
 		close(fd_value);
@@ -31,8 +31,9 @@ void cp(const char *file_from, const char *file_to)
 		exit(98);
 	}
 	ret1 = close(fd_value);
-	fd_value = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	n_bytes = write(fd_value, text, BYTES);
+	fd_value = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR
+			| S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	n_bytes = write(fd_value, text, n_bytes);
 	if (n_bytes < 0 || fd_value < 0)
 	{
 		free(text);
