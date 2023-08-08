@@ -38,8 +38,7 @@ void cp(const char *file_from, const char *file_to)
 	free(text);
 	if (chmod(file_to, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH) != 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't set file permissions\n");
-		exit(99);
+		exit(9);
 	}
 	if (n_bytes < 0 || fd_value2 < 0 || !file_to)
 	{
