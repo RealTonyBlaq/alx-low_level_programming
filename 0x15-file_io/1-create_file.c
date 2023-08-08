@@ -15,12 +15,13 @@ int create_file(const char *filename, char *text_content)
 
 	if (!filename)
 		return (-1);
-	if (!text_content)
-		return (-1);
 	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 400);
 	if (fd < 0)
 		return (-1);
-	n_bytes = write(fd, text_content, _strlen(text_content));
+	if (text_content != NULL)
+		n_bytes = write(fd, text_content, _strlen(text_content));
+	else
+		n_bytes = write(fd, "", 1);
 	close(fd);
 	if (n_bytes < 0)
 	{
@@ -40,8 +41,6 @@ int _strlen(char *str)
 {
 	int len = 0;
 
-	if (str == NULL)
-		return (-1);
 	while (str[len] != '\0')
 	{
 		len++;
