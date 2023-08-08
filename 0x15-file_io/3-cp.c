@@ -33,16 +33,19 @@ void cp(const char *file_from, const char *file_to)
 	fd_value2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR
 			| S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	n_bytes = write(fd_value2, text, n_bytes);
+	ret1 = close(fd_value1);
+	ret2 = close(fd_value2);
 	free(text);
+	if (chmod(file_to, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH) != 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't set file permissions\n");
+		exit(99);
+	}
 	if (n_bytes < 0 || fd_value2 < 0 || !file_to)
 	{
-		close(fd_value1);
-		close(fd_value2);
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
-	ret1 = close(fd_value1);
-	ret2 = close(fd_value2);
 	if (ret1 < 0 || ret2 < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ret1 < 0 ? ret1 : ret2);
