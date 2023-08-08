@@ -32,6 +32,13 @@ void cp(const char *file_from, const char *file_to)
 	}
 	fd_value2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR
 			| S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	if (chmod(file_to, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH) != 0)
+	{
+		free(text);
+		close(fd_value2);
+		dprintf(STDERR_FILENO, "Cant give permissions\n");
+		exit(22);
+	}
 	n_bytes = write(fd_value2, text, n_bytes);
 	if (n_bytes < 0 || fd_value2 < 0 || !file_to)
 	{
