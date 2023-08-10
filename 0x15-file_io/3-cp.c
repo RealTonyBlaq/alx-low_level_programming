@@ -30,8 +30,7 @@ void cp(const char *file_from, const char *file_to)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	fd_value2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR
-			| S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	fd_value2 = open(file_to, O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	n_bytes = write(fd_value2, text, n_bytes);
 	ret1 = close(fd_value1);
 	ret2 = close(fd_value2);
