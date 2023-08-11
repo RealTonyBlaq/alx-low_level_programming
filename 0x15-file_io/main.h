@@ -18,6 +18,6 @@ int append_text_to_file(const char *filename, char *text_content);
 int main(int argc, char **argv);
 void cp(const char *file_from, const char *file_to);
 int close_file(int file);
-void close_files(int file1, int file2, char *file_to);
+void close_files(int file1, int file2, const char *file_to);
 
 #endif /* #ifndef MAIN_H */
