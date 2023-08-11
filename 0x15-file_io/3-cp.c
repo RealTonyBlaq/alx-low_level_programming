@@ -23,7 +23,8 @@ void cp(const char *file_from, const char *file_to)
 	fd_value2 = open(file_to, O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	if (fd_value2 < 0)
 	{
-		close_files(fd_value1, fd_value2, file_to);
+		close(fd_value1);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 	while (end_of_file)
