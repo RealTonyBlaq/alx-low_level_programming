@@ -32,9 +32,7 @@ void cp(const char *file_from, const char *file_to)
 		end_of_file = read(fd_value1, text, BYTES);
 		if (end_of_file < 0)
 		{
-			close(fd_value1);
-			close(fd_value2);
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+			close_files(fd_value1, fd_value2, file_from, 1);
 			exit(98);
 		}
 		else if (end_of_file == 0)
@@ -42,7 +40,7 @@ void cp(const char *file_from, const char *file_to)
 		n_bytes = write(fd_value2, text, end_of_file);
 		if (n_bytes < 0)
 		{
-			close_files(fd_value1, fd_value2, file_to);
+			close_files(fd_value1, fd_value2, file_to, 2);
 			exit(99);
 		}
 	}
@@ -100,14 +98,21 @@ int close_file(int file)
  * and prints an error
  * @file1: The first file descriptor
  * @file2: The second file descriptor
- * @file_to: The file_to pointer
+ * @file: The pointer, which is either file_to or file_from
  *
  * Return: Nothing
  */
 
-void close_files(int file1, int file2, const char *file_to)
+void close_files(int file1, int file2, const char *file, int error)
 {
 	close(file1);
 	close(file2);
-	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+	if (error == 2)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
+	}
+	else if (error == 1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
+	}
 }
