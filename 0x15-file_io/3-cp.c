@@ -11,35 +11,45 @@
 
 void cp(const char *file_from, const char *file_to)
 {
-	int fd_value1, fd_value2, n_bytes, ret1, ret2;
-	char *text;
+	int fd_value1, fd_value2, n_bytes, ret1, ret2, end_of_file = 1;
+	char text[BYTES];
 
 	fd_value1 = open(file_from, O_RDONLY);
-	if ((fd_value1 < 0) || file_from == NULL)
+	if (fd_value1 < 0)
 	{
-		close(fd_value1);
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
-	text = malloc(BYTES);
-	n_bytes = read(fd_value1, text, BYTES);
-	if (n_bytes < 0 || text == NULL)
-	{
-		free(text);
-		close(fd_value1);
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 	fd_value2 = open(file_to, O_WRONLY | O_TRUNC | O_CREAT, 0664);
-	n_bytes = write(fd_value2, text, n_bytes);
-	ret1 = close(fd_value1);
-	ret2 = close(fd_value2);
-	free(text);
-	if (n_bytes < 0 || fd_value2 < 0 || !file_to)
+	if (fd_value2 < 0)
 	{
+		close(fd_value1);
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
+	while (end_of_file)
+	{
+		end_of_file = read(fd_value1, text, BYTES);
+		if (end_of_file < 0)
+		{
+			close(fd_value1);
+			close(fd_value2);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+			exit(98);
+		}
+		else if (end_of_file == 0)
+			break;
+		n_bytes = write(fd_value2, text, end_of_file);
+		if (n_bytes < 0)
+		{
+			close(fd_value1);
+			close(fd_value2);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+			exit(99);
+		}
+	}
+	ret1 = close(fd_value1);
+	ret2 = close(fd_value2);
 	if (ret1 < 0 || ret2 < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ret1 < 0 ? ret1 : ret2);
