@@ -23,8 +23,7 @@ void cp(const char *file_from, const char *file_to)
 	fd_value2 = open(file_to, O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	if (fd_value2 < 0)
 	{
-		close(fd_value1);
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+		close_files(fd_value1, fd_value2, file_to);
 		exit(99);
 	}
 	while (end_of_file)
@@ -42,17 +41,14 @@ void cp(const char *file_from, const char *file_to)
 		n_bytes = write(fd_value2, text, end_of_file);
 		if (n_bytes < 0)
 		{
-			close(fd_value1);
-			close(fd_value2);
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+			close_files(fd_value1, fd_value2, file_to);
 			exit(99);
 		}
 	}
-	ret1 = close(fd_value1);
-	ret2 = close(fd_value2);
+	ret1 = close_file(fd_value1);
+	ret2 = close_file(fd_value2);
 	if (ret1 < 0 || ret2 < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ret1 < 0 ? ret1 : ret2);
 		exit(100);
 	}
 }
@@ -77,4 +73,40 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 	return (0);
+}
+
+/**
+ * close_file - Function closes a file descriptor
+ * @file: The file descriptor
+ *
+ * Return: The error returned from the close sys call
+ */
+
+int close_file(int file)
+{
+	int error;
+
+	error = close(file);
+	if (error < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
+	}
+	return (error);
+}
+
+/**
+ * close_files - Function closes two file descriptors at once
+ * and prints an error
+ * @file1: The first file descriptor
+ * @file2: The second file descriptor
+ * @file_to: The file_to pointer
+ *
+ * Return: Nothing
+ */
+
+void close_files(int file1, int file2, const char *file_to)
+{
+	close(file1);
+	close(file2);
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 }
