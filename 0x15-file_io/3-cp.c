@@ -99,6 +99,8 @@ int close_file(int file)
  * @file1: The first file descriptor
  * @file2: The second file descriptor
  * @file: The pointer, which is either file_to or file_from
+ * @error: The error flag - (1) for read error
+ * (2) - for write error
  *
  * Return: Nothing
  */
