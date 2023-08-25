@@ -27,7 +27,8 @@ int main(int ac, char **argv, char **environ)
 				write(STDOUT_FILENO, "\n", 1);
 			break;
 		}
-		remove_newline_character(getline_buffer);
+		if (ac != 2)
+			remove_newline_character(getline_buffer);
 		if (getline_buffer[0] == '\0' || getline_buffer[0] == ' ')
 		{
 			if (check_spaces(getline_buffer) == NULL)

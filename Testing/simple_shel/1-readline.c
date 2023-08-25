@@ -10,16 +10,13 @@
 
 char *read_line(int ac, char **argv)
 {
-	char *getline_buffer = NULL;
+	char *getline_buffer = NULL, *buf_copy = NULL;
 	size_t getline_buffer_size = 0;
 	ssize_t num_of_char_read;
 
 	if (ac == 2)
 	{
-		if ((getline_buffer = read_text(argv[1])) == NULL)
-		{
-			num_of_char_read = -1;
-		}
+		getline_buffer = read_text(argv);
 	}
 	else
 	{
@@ -48,77 +45,66 @@ char *read_line(int ac, char **argv)
  * Return: A string pointer, otherwise NULL
  */
 /*
-char *read_textfile(char **filename, char *text)
+   char *read_textfile(char **filename, char *text)
+   {
+   char *text_copy = NULL;
+   int fd, len;
+   ssize_t rret;
+
+   fd = open(filename[1], O_RDONLY);
+   if (fd == -1)
+   {
+   perror("Can't open file");
+   return (NULL);
+   }
+   text_copy = malloc(1024);
+   if (text_copy == NULL)
+   {
+   close(fd);
+   return (NULL);
+   }
+   rret = read(fd, text_copy, 1024);
+   if (rret == -1)
+   {
+   perror("Can't read file");
+   free(text_copy);
+   close(fd);
+   return (NULL);
+   }
+   len = _strlen(text_copy);
+   free(text_copy);
+   close(fd);
+   text = malloc(sizeof(char) * (len + 2));
+   if (text == NULL)
+   {
+   perror("malloc failed");
+   return (NULL);
+   }
+   _strcpy(text, text_copy);
+   return (text);
+   }*/
+
+char *read_text(char **argv)
 {
-	char *text_copy = NULL;
-	int fd, len;
-	ssize_t rret;
+	FILE *stream;
+	char *line = NULL;
+	size_t len = 0, i = 0;
+	ssize_t nread;
 
-	fd = open(filename[1], O_RDONLY);
-	if (fd == -1)
+	stream = fopen(argv[1], "r");
+	if (stream == NULL)
 	{
-		perror("Can't open file");
-		return (NULL);
+		perror("can't open file");
+		exit(EXIT_FAILURE);
 	}
-	text_copy = malloc(1024);
-	if (text_copy == NULL)
+	nread = getline(&line, &len, stream);
+	if (nread == -1)
 	{
-		close(fd);
-		return (NULL);
+		perror("unable to read file\n");
+		fclose(stream);
+		free(line);
+		exit(EXIT_FAILURE);
 	}
-	rret = read(fd, text_copy, 1024);
-	if (rret == -1)
-	{
-		perror("Can't read file");
-		free(text_copy);
-		close(fd);
-		return (NULL);
-	}
-	len = _strlen(text_copy);
-	free(text_copy);
-	close(fd);
-	text = malloc(sizeof(char) * (len + 2));
-	if (text == NULL)
-	{
-		perror("malloc failed");
-		return (NULL);
-	}
-	_strcpy(text, text_copy);
-	return (text);
-}*/
-
-char *read_text(const char *filename)
-{
-	FILE *file = fopen(filename, "r");
-	long fileSize;
-	char *text;
-	size_t bytesRead;
-
-	if (file == NULL)
-	{
-		perror("Error opening file");
-		return (NULL);
-	}
-	fseek(file, 0, SEEK_END);
-	fileSize = ftell(file);
-	rewind(file);
-
-	text = (char *)malloc(fileSize + 1);
-	if (text == NULL)
-	{
-		perror("Memory allocation failed");
-		fclose(file);
-		return (NULL);
-	}
-	bytesRead = fread(text, 1, fileSize, file);
-	if (bytesRead != (size_t)fileSize)
-	{
-		perror("Error reading file");
-		fclose(file);
-		free(text);
-		return (NULL);
-	}
-	text[fileSize] = '\0';
-	fclose(file);
-	return (text);
+	fclose(stream);
+	return (line);
 }

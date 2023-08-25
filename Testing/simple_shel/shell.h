@@ -41,6 +41,6 @@ int _isdigit(int c);
 int _isalpha(int c);
 char *check_spaces(char *str);
 char *read_textfile(char **filename, char *text);
-char *read_text(const char *filename);
+char *read_text(char **argv);
 
 #endif /* #ifndef SHELL_H */
