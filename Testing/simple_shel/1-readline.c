@@ -10,7 +10,7 @@
 
 char *read_line(int ac, char **argv)
 {
-	char *getline_buffer = NULL, *buf_copy = NULL;
+	char *getline_buffer = NULL;
 	size_t getline_buffer_size = 0;
 	ssize_t num_of_char_read;
 
@@ -38,73 +38,42 @@ char *read_line(int ac, char **argv)
 }
 
 /**
- * read_textfile - Reads text from a file
- * @filename: The name of the file
- * @text: Where to save the text
+ * read_text - Reads text from a file
+ * @argv: Argument vector
  *
- * Return: A string pointer, otherwise NULL
+ * Return: A string pointer
  */
-/*
-   char *read_textfile(char **filename, char *text)
-   {
-   char *text_copy = NULL;
-   int fd, len;
-   ssize_t rret;
-
-   fd = open(filename[1], O_RDONLY);
-   if (fd == -1)
-   {
-   perror("Can't open file");
-   return (NULL);
-   }
-   text_copy = malloc(1024);
-   if (text_copy == NULL)
-   {
-   close(fd);
-   return (NULL);
-   }
-   rret = read(fd, text_copy, 1024);
-   if (rret == -1)
-   {
-   perror("Can't read file");
-   free(text_copy);
-   close(fd);
-   return (NULL);
-   }
-   len = _strlen(text_copy);
-   free(text_copy);
-   close(fd);
-   text = malloc(sizeof(char) * (len + 2));
-   if (text == NULL)
-   {
-   perror("malloc failed");
-   return (NULL);
-   }
-   _strcpy(text, text_copy);
-   return (text);
-   }*/
 
 char *read_text(char **argv)
 {
 	FILE *stream;
-	char *line = NULL;
-	size_t len = 0, i = 0;
-	ssize_t nread;
+	char *line = NULL, *text = NULL;
+	size_t len = 0, fullsize = 0, length;
 
 	stream = fopen(argv[1], "r");
 	if (stream == NULL)
 	{
 		perror("can't open file");
-		exit(EXIT_FAILURE);
+		exit(127);
 	}
-	nread = getline(&line, &len, stream);
-	if (nread == -1)
+	while (getline(&line, &len, stream) != -1)
 	{
-		perror("unable to read file\n");
-		fclose(stream);
-		free(line);
-		exit(EXIT_FAILURE);
+		length = len;
+		text = realloc(text, fullsize + length + 1);
+		if (text == NULL)
+		{
+			perror("memory allocation failure");
+			fclose(stream);
+			free(line);
+			exit(127);
+		}
+		_strcpy(text + fullsize, line);
+		fullsize += length;
 	}
+	free(line);
 	fclose(stream);
-	return (line);
+	if (fullsize == 0)
+		exit(127);
+	text[fullsize] = '\0';
+	return (text);
 }
