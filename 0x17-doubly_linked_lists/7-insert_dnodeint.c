@@ -15,39 +15,36 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	if (h == NULL)
 		return (NULL);
-	if (*h != NULL)
+	count = node_count(tmp);
+	if (idx > count - 1)
+		return (NULL);
+	if (idx == 0)
 	{
-		count = node_count(tmp);
-		if (idx > count - 1)
-			return (NULL);
-		if (idx == 0)
-		{
-			new = add_dnodeint(h, n);
-			return (new);
-		}
-		ptr = *h;
-		while (ptr != NULL && i < idx)
-		{
-			ptr = ptr->next;
-			i++;
-		}
-		if (ptr == NULL)
-			return (NULL);
-		if (ptr->next == NULL)
-		{
-			new = add_dnodeint_end(h, n);
-			return (new);
-		}
-		new = malloc(sizeof(dlistint_t));
-		if (new == NULL)
-			return (NULL);
-		new->n = n;
-		new->prev = ptr;
-		new->next = ptr->next;
-		ptr->next->prev = new;
-		ptr->next = new;
+		new = add_dnodeint(h, n);
 		return (new);
 	}
+	ptr = *h;
+	while (ptr != NULL && i < idx)
+	{
+		ptr = ptr->next;
+		i++;
+	}
+	if (ptr == NULL)
+		return (NULL);
+	if (ptr->next == NULL)
+	{
+		new = add_dnodeint_end(h, n);
+		return (new);
+	}
+	new = malloc(sizeof(dlistint_t));
+	if (new == NULL)
+		return (NULL);
+	new->n = n;
+	new->prev = ptr;
+	new->next = ptr->next;
+	ptr->next->prev = new;
+	ptr->next = new;
+	return (new);
 	return (NULL);
 }
 
