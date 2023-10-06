@@ -4,7 +4,7 @@
  * key_index - Returns the index of a key in the hash table
  * @key: The key
  * @size: Size of the hash table
- * 
+ *
  * Return: The index where key and value will be stored
 */
 unsigned long int key_index(const unsigned char *key, unsigned long int size)
