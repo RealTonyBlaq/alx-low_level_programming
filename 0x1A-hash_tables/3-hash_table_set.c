@@ -36,18 +36,20 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	else
 	{
 		temp = ht->array[index];
-		if (strcmp(temp->key, key) == 0)
+		while (temp)
 		{
-			strcpy(temp->value, value);
-			free(new->key);
-			free(new->value);
-			free(new);
+			if (strcmp(temp->key, key) == 0)
+			{
+				strcpy(temp->value, new->value);
+				free(new->key);
+				free(new->value);
+				free(new);
+				return (1);
+			}
+			temp = temp->next;
 		}
-		else
-		{
-			new->next = temp;
-			temp = new;
-		}
+		new->next = ht->array[index];
+		ht->array[index] = new;
 	}
 	return (1);
 }
