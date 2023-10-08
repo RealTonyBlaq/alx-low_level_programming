@@ -139,7 +139,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
             {
                 new->sprev = current;
                 current->next = new;
-                current = new;
+                break;
             }
             current = current->next;
         }
