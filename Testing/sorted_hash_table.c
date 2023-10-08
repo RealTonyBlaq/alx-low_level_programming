@@ -177,3 +177,72 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
     }
     return (NULL);
 }
+
+/**
+ * shash_table_print - Prints the sorted shash table
+ * @ht: The table
+ *
+ * Return: Nothing
+*/
+void shash_table_print(const shash_table_t *ht)
+{
+    unsigned long int i = 0, flag = 0;
+    shash_node_t *current;
+
+    if (ht == NULL)
+        return;
+    printf("{");
+    while (i < ht->size)
+    {
+        if (ht->array[i])
+        {
+            current = ht->array[i];
+            while (current)
+            {
+                if (flag != 0)
+                    printf(", ");
+                printf("'%s': '%s'", current->key, current->value);
+                flag = 1;
+                current = current->snext;
+            }
+        }
+        i++;
+    }
+    printf("}\n");
+}
+
+/**
+ * shash_table_print_rev - Prints the sorted shash table in reverse
+ * @ht: The shash table
+ *
+ * Return: Nothing
+*/
+void shash_table_print_rev(const shash_table_t *ht)
+{
+    unsigned long int i = 0, flag = 0;
+    shash_node_t *current *temp;
+
+    if (ht == NULL)
+        return;
+    printf("{");
+    while (i < ht->size)
+    {
+        if (ht->array[i])
+        {
+            temp = ht->array[i];
+            while (temp->next)
+                temp = temp->next;
+            current = temp;
+            while (current)
+            {
+                if (flag != 0)
+                    printf(", ");
+                printf("'%s': '%s'", current->key, current->value);
+                flag = 1;
+                current = current->prev;
+            }
+        }
+        i++;
+    }
+    printf("}\n");
+}
