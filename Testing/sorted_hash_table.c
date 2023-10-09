@@ -62,7 +62,7 @@ shash_table_t *shash_table_create(unsigned long int size)
     }
     for (i = 0; i < size; i++)
     {
-        table->array[i] == NULL;
+        table->array[i] = NULL;
     }
     table->shead = NULL;
     table->stail = NULL;
@@ -84,7 +84,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
     if (ht == NULL || !key || *key == '\0' || value == NULL)
         return (0);
-    index = key_index(key, ht->size);
+    index = key_index((const unsigned char *)key, ht->size);
     new = malloc(sizeof(shash_node_t));
     if (new == NULL)
         return (0);
@@ -225,7 +225,7 @@ void shash_table_print(const shash_table_t *ht)
 void shash_table_print_rev(const shash_table_t *ht)
 {
     unsigned long int i = 0, flag = 0;
-    shash_node_t *current *temp;
+    shash_node_t *current, *temp;
 
     if (ht == NULL)
         return;
@@ -250,4 +250,37 @@ void shash_table_print_rev(const shash_table_t *ht)
         i++;
     }
     printf("}\n");
+}
+
+/**
+ * shash_table_delete - Deletes a shash table
+ * @ht: The shash table to be deleted
+ *
+ * Return: Nothing
+*/
+void shash_table_delete(shash_table_t *ht)
+{
+    shash_node_t *current, *temp;
+    unsigned long int i = 0;
+
+    if (ht == NULL)
+        return;
+    while (i < ht->size)
+    {
+        if (ht->array[i])
+        {
+            temp = ht->array[i];
+            while (temp)
+            {
+                current = temp;
+                free(temp->key);
+                free(temp->value);
+                temp = temp->next;
+                free(current);
+            }
+        }
+        i++;
+    }
+    free(ht->array);
+    free(ht);
 }
