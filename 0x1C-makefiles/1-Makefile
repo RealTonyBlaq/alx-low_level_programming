@@ -1,14 +1,8 @@
 #!/usr/bin/env bash
-school: main.o school.o
+school: main.c school.c
 
 CC=gcc
 SRC="*.c"
 
-main.o: main.c m.h
-	$(CC) -c main.c
-
-school.o: school.c m.h
-	$(CC) -c school.c
-
 all:
-	$(CC) -c $(SRC)
+	$(CC) $(SRC) -o school
