@@ -11,4 +11,4 @@ school.o: school.c m.h
 	$(CC) -c school.c
 
 all:
-	$(CC) $(SRC) -o school
+	$(CC) -c $(SRC)
