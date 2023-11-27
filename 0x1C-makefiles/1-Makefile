@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 school: main.o school.o
 
-CC=cc
+CC=gcc
 SRC="*.c"
 
 main.o: main.c m.h
