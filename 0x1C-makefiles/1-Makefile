@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-school: main.c school.c
-
 CC=gcc
-SRC="*.c"
+SRC := $(wildcard *.c)
+
+school: $(SRC)
 
 all:
 	$(CC) $(SRC) -o school
