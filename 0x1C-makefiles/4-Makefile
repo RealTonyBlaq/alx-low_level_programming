@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+CC=gcc
+CFLAGS=-Wall -Werror -Wextra -pedantic
+SRC = main.c school.c
+OBJ = $(SRC:.c $(CFLAGS) =.o)
+NAME=school
+RM=rm
+
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+clean:
+	$(RM) -f *~ *.swp $(NAME)
+
+oclean:
+	$(RM) -f $(OBJ)
+
+fclean: clean oclean
+
+re: oclean $(OBJ) all
+
+%.o: %.c m.h
+	$(CC) $(CFLAGS) -c $< -o $@
