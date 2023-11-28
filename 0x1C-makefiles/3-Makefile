@@ -4,7 +4,6 @@ SRC = main.c school.c
 OBJ := $(SRC:.c=.o)
 NAME=school
 RM=rm
-OBJ_COPY=$(OBJ)
 
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
@@ -19,6 +18,12 @@ fclean:
 	$(RM) -f *~ $(NAME)
 	$(RM) -f $(OBJ)
 
-re: $(OBJ_COPY)
+main.o: main.c m.h
+	$(CC) -c main.c 
+
+school.o: school.c m.h
+	$(CC) -c school.c
+
+re: $(OBJ)
 	$(RM) -f $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
