@@ -18,6 +18,7 @@ fclean:
 	$(RM) -f *~ $(NAME)
 	$(RM) -f $(OBJ)
 
-re: all
+re:
 	$(RM) -f $(OBJ)
+	OBJ = $(SRC:.c=.o)
 	$(CC) $(OBJ) -o $(NAME)
