@@ -24,6 +24,4 @@ main.o: main.c m.h
 school.o: school.c m.h
 	$(CC) -c school.c
 
-re: $(OBJ)
-	$(RM) -f $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+re: oclean all
