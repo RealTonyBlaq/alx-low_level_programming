@@ -17,7 +17,6 @@ unsigned int _strspn(char *s, char *accept)
 
 	str1 = s;
 	str2 = accept;
-
 	i = 0;
 	while (str1[i] != '\0')
 	{
@@ -33,10 +32,7 @@ unsigned int _strspn(char *s, char *accept)
 		}
 
 		if (s[i] != accept[j])
-		{
 			break;
-		}
-
 		i++;
 	}
 	return (count);
