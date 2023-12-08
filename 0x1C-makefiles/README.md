@@ -5,4 +5,6 @@ and set targets (with its dependencies).
 
 To test these makefiles, use:
 
-`make <rule> -f <filename>`
+```cmd
+make <rule> -f <filename>
+```
