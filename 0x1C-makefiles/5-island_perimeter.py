@@ -18,6 +18,10 @@ def island_perimeter(grid):
         return 0
     if not isinstance(grid, list):
         return 0
+    count = 0
     for row in grid:
         for i in row:
-            if 
+            if i == 1:
+                count += 1
+    count *= 2
+    return count
