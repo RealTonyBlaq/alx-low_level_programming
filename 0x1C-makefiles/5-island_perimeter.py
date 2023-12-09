@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """ Module """
 
 
@@ -14,8 +15,6 @@ def island_perimeter(grid):
 
     Return: The perimeter of the island
     """
-    if grid is None:
-        return 0
     if not isinstance(grid, list) or len(grid) == 0:
         return 0
     height = 0
