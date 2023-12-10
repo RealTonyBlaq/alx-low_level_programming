@@ -1,5 +1,52 @@
 #!/bin/bash
-read -p "Enter your commit message: " message
-git add $1
-git commit -m "$message"
-git push
+# Script makes pushing code to github easier
+
+if [ "$#" -lt 1 ]; then
+	echo "Usage: commit <option> <file(s)>"
+	echo "<option>: all - Commits all files with one commit message"
+	echo "<file(s)>: your files"
+	exit 1
+fi
+
+i=1
+switch=0
+push_count=0
+file="all"
+if [ "$1" = all ]; then
+	if [ -e "$file" ]; then
+		echo "The file <all> exists"
+		read -p "Are you trying to commit it? [Y/N] " reply
+		if [ "$reply" = Y ] || [ "$reply" = y ]; then
+			echo "Got it.."
+		elif [ "$reply" = N ] || [ "$reply" = n ]; then
+			i=2
+			switch=1
+			read -p "Enter a one-time commit message: " message
+		else
+			echo "$reply - invalid response"
+			exit 1
+		fi
+	else
+		i=2
+		switch=1
+		read -p "Enter a one-time commit message: " message
+	fi
+fi
+
+while [ "$i" -le "$#" ]
+do
+	if [ "$push_count" -gt 0 ]; then
+		echo ""
+	fi
+	if [ "$switch" -eq 0 ]; then
+		read -p "Enter your commit message: " message
+	fi
+	echo "Pushing ${!i}... "
+	git add ${!i}
+	git commit -m "$message"
+	git push
+	((i++))
+	((push_count++))
+done
+
+exit 0
