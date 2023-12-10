@@ -24,6 +24,7 @@ if [ "$1" = all ]; then
 			read -p "Enter a one-time commit message: " message
 		else
 			echo "$reply - invalid response"
+			echo "Cancelled..."
 			exit 1
 		fi
 	else
