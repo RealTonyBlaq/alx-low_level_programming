@@ -46,7 +46,7 @@ void my_print(int *array, size_t start, size_t finish)
 	size_t i;
 
 	printf("Searching in array: ");
-	for (i = start; i < finish; i++)
+	for (i = start; i <= finish; i++)
 	{
 		printf("%d", array[i]);
 		if (i != finish)
