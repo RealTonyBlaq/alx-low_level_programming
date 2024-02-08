@@ -3,5 +3,9 @@
 /*
  * binary_search - Algorthis searches for a value using binary
  *			search.
- * @array
+ * @array: The array
+ * @size: Size of the array
+ * @value: Value to be searched
+ *
+ * Return: The index where the element was found
  */
