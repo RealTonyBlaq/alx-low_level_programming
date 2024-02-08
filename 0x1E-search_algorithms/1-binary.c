@@ -1,6 +1,6 @@
 #include "search_algos.h"
 
-/*
+/**
  * binary_search - Algorthis searches for a value using binary
  *			search.
  * @array: The array
@@ -32,7 +32,7 @@ int binary_search(int *array, size_t size, int value)
 	return (-1);
 }
 
-/*
+/**
  * my_print - Prints the array with a format
  * @array: The array
  * @start: The first index of the array
