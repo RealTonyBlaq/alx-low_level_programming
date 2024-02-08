@@ -13,11 +13,11 @@
 
 int binary_search(int *array, size_t size, int value)
 {
-	size_t start = 0, finish = size, mid, i = 0;
+	size_t start = 0, finish = size, mid;
 
 	if (array)
 	{
-		while (i < size)
+		while (start <= finish)
 		{
 			mid = start + (finish - start) / 2;
 			my_print(array, start, finish);
