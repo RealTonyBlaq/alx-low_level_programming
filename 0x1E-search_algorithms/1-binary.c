@@ -7,5 +7,6 @@
  * @size: Size of the array
  * @value: Value to be searched
  *
- * Return: The index where the element was found
+ * Return: The index where the element was found,
+ *		otherwise -1 is returned.
  */
