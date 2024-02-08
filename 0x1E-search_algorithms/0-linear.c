@@ -2,7 +2,7 @@
 
 /**
 * int linear_search - Searches an array for a value using the
-                        linear search algorithm
+                       linear search algorithm
 * @array: The array
 * @size: Size of the array
 * @value: Value to be searched
