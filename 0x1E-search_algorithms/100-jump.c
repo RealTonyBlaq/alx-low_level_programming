@@ -53,6 +53,7 @@ int lin_search(int *array, size_t start, size_t finish, int v)
 	{
 		printf("Value checked array[%lu] = %d\n", i, array[i]);
 		if (array[i] == v)
-			return (i);
+			break;
 	}
+	return (i);
 }
