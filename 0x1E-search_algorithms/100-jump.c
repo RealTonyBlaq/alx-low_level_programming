@@ -34,7 +34,11 @@ int jump_search(int *array, size_t size, int value)
  * @array: The array
  * @start: The starting index
  * @finish: The last index
+ * @v: The searched value
  *
  * Return: The index if found
 */
-int lin_search(int *array, size)
+int lin_search(int *array, size_t start, size_t finish, int v)
+{
+	
+}
