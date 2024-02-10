@@ -22,6 +22,9 @@ int jump_search(int *array, size_t size, int value)
 		return (0);
 	else
 	{
-		
+		if (array[jump_point] > value)
+		{
+			
+		}
 	}
 }
