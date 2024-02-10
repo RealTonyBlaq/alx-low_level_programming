@@ -22,12 +22,11 @@ int jump_search(int *array, size_t size, int value)
 		return (0);
 	else
 	{
-		while (array[b] <)
-		if (array[jump_point] > value)
+		while (array[b] < value)
 		{
-			printf("Value found between index [%lu] and [%lu]", 1, jump_point);
-			break;
+
 		}
+		
 	}
 	return (lin_search(array, 1, jump_point - 1, value));
 }
