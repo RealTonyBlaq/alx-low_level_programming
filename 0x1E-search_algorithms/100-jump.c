@@ -13,13 +13,13 @@
 
 int jump_search(int *array, size_t size, int value)
 {
-	size_t i;
+	size_t i, jump_point =;
 
 	if (!array)
 		return (-1);
 	
 	for (i = 0; i < size; i++)
 	{
-		fj
+		
 	}
 }
