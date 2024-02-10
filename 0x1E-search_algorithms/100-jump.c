@@ -30,5 +30,8 @@ int jump_search(int *array, size_t size, int value)
 }
 
 /**
- * lin_search
+ * lin_search - Performs linear search on a jump point
+ * @array: The array
+ * @start: The starting index
+ * @finish
 */
