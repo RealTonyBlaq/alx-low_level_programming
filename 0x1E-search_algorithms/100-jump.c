@@ -17,6 +17,8 @@ int jump_search(int *array, size_t size, int value)
 
 	if (array)
 	{
+		if (sqrt(size) <= 2)
+			return (lin_search(array, 0, size, value));
 		b = 0;
 		while (array[b] < value)
 		{
