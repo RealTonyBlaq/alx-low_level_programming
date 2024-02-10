@@ -22,9 +22,11 @@ int jump_search(int *array, size_t size, int value)
 		return (0);
 	else
 	{
+		b = sqrt(size);
 		while (array[b] < value)
 		{
 			a = b;
+			b = b + sz
 		}
 		
 	}
