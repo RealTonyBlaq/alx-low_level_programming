@@ -31,7 +31,8 @@ int jump_search(int *array, size_t size, int value)
 			if (a >= size)
 				return (-1);
 		}
-		
+		printf("")
+		return (lin_search(array, a, b, value));
 	}
 }
 
