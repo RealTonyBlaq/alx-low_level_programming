@@ -45,6 +45,7 @@ int lin_search(int *array, size_t start, size_t finish, int v)
 	for (i = start; i <= finish; i++)
 	{
 		if (array[i] == v)
-			return (i)
+			return (i);
 	}
+	return (0);
 }
