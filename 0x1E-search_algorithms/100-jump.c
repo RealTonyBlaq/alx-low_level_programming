@@ -23,7 +23,7 @@ int jump_search(int *array, size_t size, int value)
 	else
 	{
 		if (array[jump_point] > value)
-			lin_search(array, 1)
+			lin_search(array, 1, )
 	}
 }
 
