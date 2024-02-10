@@ -40,5 +40,7 @@ int jump_search(int *array, size_t size, int value)
 */
 int lin_search(int *array, size_t start, size_t finish, int v)
 {
-	
+	size_t i;
+
+	for (i = start; i <= finish; i++)
 }
