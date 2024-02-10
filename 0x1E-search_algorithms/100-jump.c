@@ -13,7 +13,7 @@
 
 int jump_search(int *array, size_t size, int value)
 {
-	size_t i, jump_point = sqrt(size);
+	size_t i, jump_point;
 
 	if (!array)
 		return (-1);
@@ -23,6 +23,8 @@ int jump_search(int *array, size_t size, int value)
 	else
 	{
 		if (array[jump_point] > value)
+		{
+			printf()
 			return (lin_search(array, 1, jump_point - 1, value));
 		else if (array[jump_point] < value)
 			return (lin_search(array, jump_point + 1, size, value));
