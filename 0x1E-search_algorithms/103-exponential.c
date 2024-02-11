@@ -61,7 +61,7 @@ int bin_search(int *array, size_t start, size_t size, int value)
  * @start: The first index of the array
  * @finish: The last index of the array
  *
- * Return: Nothing
+ * Return: Nothing.
  */
 void my_print(int *array, size_t start, size_t finish)
 {
