@@ -20,7 +20,6 @@ int advanced_binary(int *array, size_t size, int value)
 	if (start <= finish)
 	{
 		mid = start + (finish - start) / 2;
-		my_print(array, start, finish);
 		if (array[mid] > value)
 			finish = mid - 1;
 		else if (array[mid] < value)
@@ -28,6 +27,7 @@ int advanced_binary(int *array, size_t size, int value)
 		else
 			return (mid);
 		advanced_binary(array, finish - 1, value);
+		my_print(array, start, finish);
 	}
 	return (-1);
 }
