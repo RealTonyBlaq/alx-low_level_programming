@@ -40,6 +40,7 @@ int bin_search(int *array, size_t start, size_t size, int value)
 
 	if (array)
 	{
+		printf("Value found at indexes [%lu] and [%lu]")
 		while (start <= finish)
 		{
 			mid = start + (finish - start) / 2;
