@@ -20,6 +20,16 @@ int exponential_search(int *array, size_t size, int value)
 	return (binary_search(array, ))
 }
 
+/**
+ * binary_search - Algorthis searches for a value using binary
+ *			search.
+ * @array: The array
+ * @size: Size of the array
+ * @value: Value to be searched
+ *
+ * Return: The index where the element was found,
+ *		otherwise -1 is returned.
+ */
 int binary_search(int *array, size_t size, int value)
 {
 	size_t start = 0, finish = size - 1, mid;
