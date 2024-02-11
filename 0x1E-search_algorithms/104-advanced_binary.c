@@ -11,7 +11,7 @@
  *		otherwise -1 is returned.
  */
 
-int advanced_binary(int *array, size_t size, int value)
+int bin_recursive(int *array, size_t size, int value)
 {
 	size_t start = 0, finish = size - 1, mid;
 
