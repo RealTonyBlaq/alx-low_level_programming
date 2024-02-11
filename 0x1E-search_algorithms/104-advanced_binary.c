@@ -1,7 +1,7 @@
 #include "search_algos.h"
 
 /**
- * advanced_binary - Algorthis searches for a value using the
+ * advanced_binary - Algorithm searches for a value using the
  *			advanced binary search algorithm.
  * @array: The array
  * @size: Size of the array
@@ -10,10 +10,15 @@
  * Return: The index where the element was found,
  *		otherwise -1 is returned.
  */
+int advanced_binary(int *array, size_t size, int value)
+{
+	return 
+}
+
 
 int bin_recursive(int *array, size_t start, size_t size, int value)
 {
-	size_t start = 0, finish = size - 1, mid;
+	size_t finish = size - 1, mid;
 
 	if (!array)
 		return (-1);
