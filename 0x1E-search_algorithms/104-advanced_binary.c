@@ -34,7 +34,7 @@ int bin_recursive(int *array, size_t start, size_t finish, int value)
 		else if (array[mid] < value)
 		{
 			start = mid + 1;
-			retbin_recursive(array, start, finish, value);
+			return ((array, start, finish, value));
 		}
 		else
 			return (mid);
