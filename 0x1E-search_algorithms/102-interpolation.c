@@ -6,6 +6,8 @@
  * @array: The array
  * @size: The length of the array
  * @value: The value to be sought
+ *
+ * Return: The index of the searched element, otherwise -1.
 */
 int interpolation_search(int *array, size_t size, int value)
 {
