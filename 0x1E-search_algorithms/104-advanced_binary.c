@@ -29,6 +29,7 @@ int advanced_binary(int *array, size_t size, int value)
 			return (mid);
 		advanced_binary(array, finish - 1, value);
 	}
+	return (-1);
 }
 
 /**
