@@ -17,13 +17,14 @@ int exponential_search(int *array, size_t size, int value)
 		return (-1);
 	while (i < size && array[i] < value)
 		i *= 2;
-	return (binary_search(array, s))
+	return (bin_search(array, ))
 }
 
 /**
  * binary_search - Algorthis searches for a value using binary
  *			search.
  * @array: The array
+ * @start: The starting index of the array
  * @size: Size of the array
  * @value: Value to be searched
  *
