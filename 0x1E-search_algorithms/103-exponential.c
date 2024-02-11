@@ -22,7 +22,7 @@ int exponential_search(int *array, size_t size, int value)
 		printf("Value checked array[%lu] = [%d]\n", i, array[i]);
 		i *= 2;
 	}
-	return (bin_search(array, i / 2, MIN(i, size), value));
+	return (bin_search(array, i / 2, MIN(i, size - 1), value));
 }
 
 /**
@@ -38,7 +38,7 @@ int exponential_search(int *array, size_t size, int value)
  */
 int bin_search(int *array, size_t start, size_t size, int value)
 {
-	size_t finish = size - 1, mid;
+	size_t finish = size, mid;
 
 	if (array)
 	{
