@@ -13,9 +13,9 @@ int exponential_search(int *array, size_t size, int value)
 {
 	size_t i = 1;
 
-	if (!array)
+	if (!array || size < 0)
 		return (-1);
-	while (i < size )
+	while (i < size && array[i] < value)
 	
 }
 
