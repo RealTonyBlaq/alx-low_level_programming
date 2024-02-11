@@ -20,6 +20,9 @@ int advanced_binary(int *array, size_t size, int value)
  * @array: The array
  * @start: The starting index
  * @finish: The last index
+ * @value: The sought for value
+ *
+ * Return: Index of the searched value
 */
 int bin_recursive(int *array, size_t start, size_t finish, int value)
 {
