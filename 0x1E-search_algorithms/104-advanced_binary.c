@@ -17,17 +17,17 @@ int advanced_binary(int *array, size_t size, int value)
 
 	if (array)
 		return (-1);
-	while (start <= finish)
+	if (start <= finish)
 	{
 		mid = start + (finish - start) / 2;
 		my_print(array, start, finish);
 		if (array[mid] > value)
 			finish = mid - 1;
-			else if (array[mid] < value)
-				start = mid + 1;
-			else
-				return (mid);
-		}
+		else if (array[mid] < value)
+			start = mid + 1;
+		else
+			return (mid);
+	}
 }
 
 /**
