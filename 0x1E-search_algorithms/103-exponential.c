@@ -30,7 +30,7 @@ int exponential_search(int *array, size_t size, int value)
  * Return: The index where the element was found,
  *		otherwise -1 is returned.
  */
-int binary_search(int *array, size_t , int value)
+int binary_search(int *array, size_t size_t size, int value)
 {
 	size_t finish = size - 1, mid;
 
