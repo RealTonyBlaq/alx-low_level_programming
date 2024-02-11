@@ -5,6 +5,11 @@
  *						the exponential search algorithm
  * @array: The array
  * @size: The length of the array
- * @value: The 
+ * @value: The value to be sought
+ *
+ * Return: The value's index, else -1 on failure
 */
 int exponential_search(int *array, size_t size, int value)
+{
+	size
+}
