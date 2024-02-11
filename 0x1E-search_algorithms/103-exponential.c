@@ -24,7 +24,7 @@ int exponential_search(int *array, size_t size, int value)
 }
 
 /**
- * binary_search - Algorthis searches for a value using binary
+ * bin_search - Algorthis searches for a value using binary
  *			search.
  * @array: The array
  * @start: The starting index of the array
