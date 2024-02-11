@@ -13,10 +13,10 @@ int exponential_search(int *array, size_t size, int value)
 {
 	size_t i = 1;
 
-	if (!array || size < 0)
+	if (!array || size < 1)
 		return (-1);
 	while (i < size && array[i] < value)
-	
+		i *= 2;
 }
 
 int binary_search(int *array, size_t size, int value)
