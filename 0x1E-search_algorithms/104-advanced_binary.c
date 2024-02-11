@@ -20,8 +20,8 @@ int bin_recursive(int *array, size_t start, size_t size, int value)
 {
 	size_t finish = size - 1, mid;
 
-	if (!array)
-		return (-1);
+	if (array)
+	{
 	mid = start + (finish - start) / 2;
 	my_print(array, start, finish);
 	if (array[mid] > value)
