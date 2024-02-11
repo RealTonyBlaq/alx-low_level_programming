@@ -29,7 +29,7 @@ int bin_recursive(int *array, size_t start, size_t finish, int value)
 		if (array[mid] > value)
 		{
 			finish = mid - 1;
-			bin_recursive(array, start, finish, value);
+			return (bin_recursive(array, start, finish, value));
 		}
 		else if (array[mid] < value)
 		{
