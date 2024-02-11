@@ -1,4 +1,6 @@
 #include "search_algos.h"
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+
 
 /**
  * exponential_search - Finds an element in an array using
