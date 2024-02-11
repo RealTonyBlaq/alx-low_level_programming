@@ -26,8 +26,10 @@ int bin_recursive(int *array, size_t start, size_t size, int value)
 	{
 		mid = start + (finish - start) / 2;
 		if (array[mid] > value)
-		
+		{
+			finish = mid - 1;
 			bin_recursive(array, start, finish, value);
+		}
 		else if (array[mid] < value)
 		{
 			start = mid + 1;
