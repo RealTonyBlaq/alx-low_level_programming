@@ -37,7 +37,6 @@ int bin_recursive(int *array, size_t start, size_t size, int value)
 		}
 		else
 			return (mid);
-		advanced_binary(array, finish - 1, value);
 		my_print(array, start, finish);
 	}
 	return (-1);
