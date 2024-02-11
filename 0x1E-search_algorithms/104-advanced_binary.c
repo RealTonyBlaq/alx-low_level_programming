@@ -24,18 +24,18 @@ int bin_recursive(int *array, size_t start, size_t size, int value)
 		return (-1);
 	mid = start + (finish - start) / 2;
 	my_print(array, start, finish);
-		if (array[mid] > value)
-		{
-			finish = mid - 1;
-			bin_recursive(array, start, finish, value);
-		}
-		else if (array[mid] < value)
-		{
-			start = mid + 1;
-			bin_recursive(array, start, finish, value);
-		}
-		else
-			return (mid);
+	if (array[mid] > value)
+	{
+		finish = mid - 1;
+		bin_recursive(array, start, finish, value);
+	}
+	else if (array[mid] < value)
+	{
+		start = mid + 1;
+		bin_recursive(array, start, finish, value);
+	}
+	else
+		return (mid);
 	}
 }
 
