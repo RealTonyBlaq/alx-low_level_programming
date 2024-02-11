@@ -59,7 +59,6 @@ int binary_search(int *array, size_t size, int value)
  *
  * Return: Nothing
  */
-
 void my_print(int *array, size_t start, size_t finish)
 {
 	size_t i;
