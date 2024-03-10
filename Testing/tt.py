@@ -12,4 +12,4 @@ def status():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run("54.152.133.156", 5000, True,)
