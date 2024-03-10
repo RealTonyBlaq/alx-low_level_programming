@@ -12,4 +12,4 @@ def status():
 
 
 if __name__ == "__main__":
-    app.run("54.152.133.156", 5000, True,)
+    app.run(host="54.152.133.156", port=5000, debug=True)
