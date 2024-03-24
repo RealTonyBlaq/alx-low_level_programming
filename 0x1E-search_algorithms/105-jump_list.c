@@ -6,7 +6,9 @@
  *				using the Jump search algorithm
  * @list: The list
  * @size: The size of the list
- * @value: 
+ * @value: Value to be found
+ *
+ * R
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
