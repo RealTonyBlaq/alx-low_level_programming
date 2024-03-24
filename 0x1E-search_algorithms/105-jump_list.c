@@ -19,7 +19,8 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
  * point - Returns a pointer to a list at a certain point
  *			in the list
  * @list: The list
- * @
+ * @size: The size of the list
+ * @sp: 
 */
 listint_t *point(listint_t *list, size_t size, int sp)
 {
