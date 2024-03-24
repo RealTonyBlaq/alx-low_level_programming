@@ -19,8 +19,8 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		return (NULL);
 	while (current->n < value)
 	{
-		ptr = poin
-		printf("Value checked array[%lu] = [%d]\n", b, point(list, b) ? );
+		ptr = point(list, b);
+		printf("Value checked array[%lu] = [%d]\n", b, ptr ? ptr->);
 	}
 }
 
