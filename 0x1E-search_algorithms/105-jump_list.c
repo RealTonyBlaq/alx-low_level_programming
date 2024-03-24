@@ -52,7 +52,8 @@ listint_t *point(listint_t *list, size_t index)
 
 
 /**
- * list_search - 
+ * list_search - Searches a list from index a to b
+ * 
 */
 listint_t *list_search(listint_t *list, size_t a, size_t b, int value)
 {
