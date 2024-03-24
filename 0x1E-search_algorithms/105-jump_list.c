@@ -13,7 +13,7 @@
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
 	listint_t *current = list;
-	size_t a, b;
+	size_t a = 0, b = 0;
 
 	if (!list || size <= 0)
 		return (NULL);
