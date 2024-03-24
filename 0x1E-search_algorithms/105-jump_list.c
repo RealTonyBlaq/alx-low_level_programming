@@ -19,7 +19,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		return (NULL);
 	while (current->n < value)
 	{
-		printf("Value checked array[%lu] = [%d]\n", b, );
+		printf("Value checked array[%lu] = [%d]\n", b, point());
 	}
 }
 
