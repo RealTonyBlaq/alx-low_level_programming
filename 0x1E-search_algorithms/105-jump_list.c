@@ -50,6 +50,6 @@ listint_t *list_search(listint_t *list, size_t a, size_t b)
 	ptr = point(list, a);
 	while (ptr->index <= b)
 	{
-		
+		printf("Value checked array[%lu] = [%d]\n", ptr->, array[i]);
 	}
 }
