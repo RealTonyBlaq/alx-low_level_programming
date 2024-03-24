@@ -26,4 +26,6 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 listint_t *point(listint_t *list, size_t index)
 {
 	listint_t *ptr = list;
+
+	
 }
