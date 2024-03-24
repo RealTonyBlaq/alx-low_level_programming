@@ -28,5 +28,7 @@ listint_t *point(listint_t *list, size_t size, size_t index)
 {
 	size_t i = 0;
 
-	if (index > size)
+	if (index > size - 1)
+		return (NULL);
+	
 }
