@@ -12,17 +12,20 @@
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	listint_t *current = list, *ptr;
+	listint_t *current;
 	size_t a = 0, b = sqrt(size);
 
 	if (!list || size <= 0)
 		return (NULL);
-	while (current->n < value)
+	current = list;
+	while (current->n <= value)
 	{
-		ptr = point(list, b);
-		printf("Value checked array[%lu] = [%d]\n", b, ptr->n);
+		current = jump(list, b);
+		if (!current)
+			return (NULL);
+		printf("Value checked array[%lu] = [%d]\n", b, current->n);
 		a = b;
-		b = b + sqrt(size);
+		b += sqrt(size);
 		if (a >= size)
 			return (NULL);
 	}
@@ -31,22 +34,19 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 }
 
 /**
- * point - Returns a pointer to a node in the list
+ * jump - Returns a pointer to a node in the list
  * @list: The list
  * @index: The index to be returned
  *
  * Return: A pointer, else NULL
 */
-listint_t *point(listint_t *list, size_t index)
+listint_t *jump(listint_t *list, size_t index)
 {
 	listint_t *ptr = list;
 
-	while (ptr)
-	{
-		if (ptr->index == index)
-			return (ptr);
+	while (ptr && ptr->index != index)
 		ptr = ptr->next;
-	}
+	return (ptr);
 }
 
 
@@ -62,14 +62,18 @@ listint_t *point(listint_t *list, size_t index)
 listint_t *list_search(listint_t *list, size_t a, size_t b, int value)
 {
 	listint_t *ptr;
+	(void)b;
 
-	ptr = point(list, a);
-	while (ptr->index <= b)
+	ptr = jump(list, a);
+	while (ptr)
 	{
+		if (a == b)
+			break;
 		printf("Value checked at index [%lu] = [%d]\n", ptr->index, ptr->n);
 		if (ptr->n == value)
 			return (ptr);
 		ptr = ptr->next;
+		a++;
 	}
 	return (NULL);
 }
