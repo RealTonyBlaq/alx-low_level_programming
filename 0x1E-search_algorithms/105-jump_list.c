@@ -22,11 +22,11 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
  * @size: The size of the list
  * @index: Point in the list
  *
- * Return: Pointer to that point in the list
+ * Return: Pointer to that point in the list, else NULL
 */
 listint_t *point(listint_t *list, size_t size, size_t index)
 {
 	size_t i = 0;
 
-
+	if (index > size)
 }
