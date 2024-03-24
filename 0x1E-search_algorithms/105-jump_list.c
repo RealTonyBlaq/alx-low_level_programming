@@ -31,7 +31,9 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 }
 
 /**
- * point - Returns a point in the 
+ * point - Returns a pointer to a node in the list
+ * @list: The list
+ * @index: The 
 */
 listint_t *point(listint_t *list, size_t index)
 {
