@@ -8,13 +8,13 @@
  * @size: The size of the list
  * @value: Value to be found
  *
- * R
+ * Return: Point to the node, else NULL
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	listint_t *current;
+	listint_t *current = list;
 
 	if (!list || size <= 0)
 		return (NULL);
-	current = list;
+	
 }
