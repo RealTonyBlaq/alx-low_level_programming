@@ -27,6 +27,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 listint_t *point(listint_t *list, size_t size, size_t index)
 {
 	size_t i = 0;
+	listint_t 
 
 	if (index > size - 1)
 		return (NULL);
