@@ -27,9 +27,9 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 listint_t *point(listint_t *list, size_t size, size_t index)
 {
 	size_t i = 0;
-	listint_t *ptr = 
+	listint_t *ptr = list;
 
-	if (index > size - 1)
+	if (!ptr || index > size - 1)
 		return (NULL);
 	
 }
