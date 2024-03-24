@@ -22,7 +22,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		ptr = point(list, b);
 		printf("Value checked array[%lu] = [%d]\n", b, ptr->n);
 		a = b;
-		b = b + sqrt(size)
+		b = b + sqrt(size);
 	}
 }
 
