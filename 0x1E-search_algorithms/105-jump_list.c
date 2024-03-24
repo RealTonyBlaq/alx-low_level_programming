@@ -22,7 +22,8 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
  * @size: The size of the list
  * @index: Point in the list
 */
-listint_t *point(listint_t *list, size_t size, int index)
+listint_t *point(listint_t *list, size_t size, size_t index)
 {
-	int i = 0;
+	size_t i = 0;
+	
 }
