@@ -47,5 +47,6 @@ listint_t *list_search(listint_t *list, size_t a, size_t b)
 {
 	listint_t *ptr;
 
+	ptr = point(list, a);
 	
 }
