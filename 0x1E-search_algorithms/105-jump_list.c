@@ -32,4 +32,7 @@ listint_t *point(listint_t *list, size_t size, size_t index)
 	if (!ptr || index > size - 1)
 		return (NULL);
 	while (i <= index)
+	{
+		
+	}
 }
