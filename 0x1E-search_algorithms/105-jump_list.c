@@ -15,4 +15,10 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 }
 
 
-listint_t *point(listint_t *list, size_t size, int se)
+/**
+ * point - Returns a pointer to
+*/
+listint_t *point(listint_t *list, size_t size, int sp)
+{
+	int i = 0;
+}
