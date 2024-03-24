@@ -33,6 +33,6 @@ listint_t *point(listint_t *list, size_t size, size_t index)
 		return (NULL);
 	while (i <= index)
 	{
-		
+		ptr = ptr->n
 	}
 }
