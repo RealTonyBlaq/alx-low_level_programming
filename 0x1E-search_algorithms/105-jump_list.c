@@ -27,5 +27,8 @@ listint_t *point(listint_t *list, size_t index)
 {
 	listint_t *ptr = list;
 
-	while 
+	while (ptr)
+	{
+		
+	}
 }
