@@ -51,5 +51,6 @@ listint_t *list_search(listint_t *list, size_t a, size_t b)
 	while (ptr->index <= b)
 	{
 		printf("Value checked at index [%lu] = [%d]\n", ptr->index, ptr->n);
+		
 	}
 }
