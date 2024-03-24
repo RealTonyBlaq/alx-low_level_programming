@@ -27,6 +27,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 			return (NULL);
 	}
 	printf("Value found between indexes [%lu] and [%lu]\n", a, b);
+	
 }
 
 listint_t *point(listint_t *list, size_t index)
