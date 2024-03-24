@@ -23,4 +23,4 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	}
 }
 
-listint_t *
+listint_t *p
