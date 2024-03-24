@@ -30,6 +30,9 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	return (list_search(list, a, b, value));
 }
 
+/**
+ * point - Returns a point in the 
+*/
 listint_t *point(listint_t *list, size_t index)
 {
 	listint_t *ptr = list;
