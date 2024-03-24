@@ -17,5 +17,8 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 
 	if (!list || size <= 0)
 		return (NULL);
-	while (current)
+	while (current->n < value)
+	{
+		
+	}
 }
