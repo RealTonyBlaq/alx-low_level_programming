@@ -31,6 +31,7 @@ listint_t *point(listint_t *list, size_t index)
 	{
 		if (ptr->index == index)
 			return (ptr);
-		ptr
+		ptr = ptr->next;
 	}
+	return (NULL);
 }
